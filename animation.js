@@ -1,5 +1,5 @@
 $(document).ready(async function() {
-      carousel("Currently a Software Developer at BreatheSuite.", "#feature-text")
+      carousel("Application Developer at BMO.", "#feature-text")
     });
 
     async function typeSentence(sentence, eleRef, delay = 200) {
