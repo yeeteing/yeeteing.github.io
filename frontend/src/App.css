@@ -119,18 +119,18 @@ body {
 }
 
 .content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
+  display: flex;
   gap: 4rem;
   max-width: 1440px;
   width: 100%;
-  align-items: start;
+  align-items: center;
 }
 
 /* Profile Card Styles */
 .profile-card {
   position: relative;
   filter: drop-shadow(5px 5px 6px rgba(0, 0, 0, 0.25));
+  flex: 0 0 400px;
 }
 
 .profile-content {
@@ -224,6 +224,7 @@ body {
   box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
   padding: 4rem 6rem;
   min-height: 600px;
+  flex: 1;
 }
 
 .content-container {
