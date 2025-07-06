@@ -8,7 +8,7 @@
   --deep-red: #b72a41;
   --malibu-sun: #fcebd8;
   --human: #ffcd9a;
-  --background-gradient: url("https://cdn.builder.io/o/assets%2F361c241d81e8477e824668352e1031fa%2F90d9edafe2cb4e0a868595e26c86ca6f?alt=media&token=76a38c9a-6367-4450-a25f-69352cc4c7d4&apiKey=361c241d81e8477e824668352e1031fa");
+  --background-gradient: url("https://cdn.builder.io/api/v1/image/assets%2F361c241d81e8477e824668352e1031fa%2F777f60b144d04ff8aba969c2fd958821?format=webp&width=800");
 }
 
 /* Reset and Base Styles */
