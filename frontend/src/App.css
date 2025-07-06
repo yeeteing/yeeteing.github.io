@@ -123,7 +123,8 @@ body {
   gap: 4rem;
   max-width: 1440px;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 /* Profile Card Styles */
