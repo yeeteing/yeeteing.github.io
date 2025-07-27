@@ -602,7 +602,7 @@ body {
 
 .resume-container {
   max-width: 1173px;
-  width: 100%;
+  width: 1173px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1011,7 +1011,7 @@ body {
 
 .contact-container {
   max-width: 1173px;
-  width: 100%;
+  width: 1173px;
   position: relative;
   display: flex;
   flex-direction: column;
