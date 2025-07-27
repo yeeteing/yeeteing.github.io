@@ -1,6 +1,18 @@
 import React from "react";
 
-const Header: React.FC = () => {
+type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
+
+interface HeaderProps {
+  currentPage: PageType;
+  onPageChange: (page: PageType) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
+  const handleNavClick = (page: PageType, event: React.MouseEvent) => {
+    event.preventDefault();
+    onPageChange(page);
+  };
+
   return (
     <header className="header">
       <div className="header-content">
@@ -8,19 +20,39 @@ const Header: React.FC = () => {
           <h1 className="main-title">YEE TEING LO / Software Developer</h1>
         </div>
         <nav className="navigation">
-          <a href="#about" className="nav-link nav-link-active">
+          <a
+            href="#about"
+            className={`nav-link ${currentPage === 'home' ? 'nav-link-active' : ''}`}
+            onClick={(e) => handleNavClick('home', e)}
+          >
             ABOUT ME
           </a>
-          <a href="#resume" className="nav-link">
+          <a
+            href="#resume"
+            className={`nav-link ${currentPage === 'resume' ? 'nav-link-active' : ''}`}
+            onClick={(e) => handleNavClick('resume', e)}
+          >
             RESUME
           </a>
-          <a href="#projects" className="nav-link">
+          <a
+            href="#projects"
+            className={`nav-link ${currentPage === 'projects' ? 'nav-link-active' : ''}`}
+            onClick={(e) => handleNavClick('projects', e)}
+          >
             PROJECTS
           </a>
-          <a href="#hobbies" className="nav-link">
+          <a
+            href="#hobbies"
+            className={`nav-link ${currentPage === 'hobbies' ? 'nav-link-active' : ''}`}
+            onClick={(e) => handleNavClick('hobbies', e)}
+          >
             HOBBIES
           </a>
-          <a href="#contact" className="nav-link">
+          <a
+            href="#contact"
+            className={`nav-link ${currentPage === 'contact' ? 'nav-link-active' : ''}`}
+            onClick={(e) => handleNavClick('contact', e)}
+          >
             CONTACT
           </a>
         </nav>
