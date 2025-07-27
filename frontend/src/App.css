@@ -637,14 +637,14 @@ body {
 .resume-nav-btn {
   padding: 0.5rem 1.75rem;
   border-radius: 45px;
-  border: 1px solid var(--deep-red);
+  border: 1px solid var(--deep-red) !important;
   background: var(--malibu-sun);
   color: var(--deep-red);
   font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
   transition: all 0.3s ease;
   opacity: 0.9;
   min-width: 140px;
@@ -652,6 +652,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none !important;
 }
 
 .resume-nav-btn:hover {
