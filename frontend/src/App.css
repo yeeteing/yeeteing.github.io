@@ -741,14 +741,29 @@ body {
   justify-content: center;
 }
 
+.hobbies-nav-btn:hover {
+  background: var(--human);
+  color: var(--deep-red);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hobbies-nav-btn:active {
+  background: var(--deep-red);
+  color: var(--human);
+  border-color: var(--human);
+  transform: translateY(0);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .hobbies-nav-active {
   background: var(--deep-red);
   color: var(--malibu-sun);
 }
 
-.hobbies-nav-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+.hobbies-nav-active:hover {
+  background: var(--deep-red);
+  color: var(--malibu-sun);
 }
 
 .hobbies-content {
