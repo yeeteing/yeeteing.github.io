@@ -18,6 +18,20 @@
   box-sizing: border-box;
 }
 
+/* Remove default button outlines */
+button {
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: none;
+}
+
 body {
   font-family:
     "Outfit",
