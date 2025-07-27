@@ -19,7 +19,7 @@ const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
         </div>
 
         <div className="resume-navigation">
-          <button className="resume-nav-btn resume-nav-active">RESUME</button>
+          <button className="resume-nav-btn resume-nav-active" disabled>RESUME</button>
           <button className="resume-nav-btn" onClick={() => onPageChange('projects')}>PROJECTS</button>
           <button className="resume-nav-btn" onClick={() => onPageChange('hobbies')}>HOBBIES</button>
         </div>
