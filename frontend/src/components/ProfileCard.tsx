@@ -6,7 +6,7 @@ const ProfileCard: React.FC = () => {
       <div className="profile-content">
         <div className="profile-image-container">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F361c241d81e8477e824668352e1031fa%2F037616dda856469d817ecc80329a0dc4?format=webp&width=800"
+            src="https://cdn.builder.io/api/v1/image/assets%2F361c241d81e8477e824668352e1031fa%2F16b644c10fda4af4adab66179879caa1"
             alt="Yee Teing Lo"
             className="profile-image"
           />
