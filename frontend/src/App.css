@@ -1288,6 +1288,11 @@ body {
   color: var(--malibu-sun);
 }
 
+.projects-nav-btn:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
