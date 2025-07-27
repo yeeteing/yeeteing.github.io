@@ -1413,6 +1413,10 @@ body {
   }
 
   .projects-container {
+    width: 100%;
+    max-width: 1173px;
+    height: auto;
+    min-height: 800px;
     padding: 1.5rem;
   }
 
