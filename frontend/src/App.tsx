@@ -5,7 +5,7 @@ import "./App.css";
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('resume');
+  const [currentPage, setCurrentPage] = useState<PageType>('projects');
 
   const renderMainContent = () => {
     switch (currentPage) {
