@@ -109,7 +109,9 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  white-space: nowrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .navigation {
