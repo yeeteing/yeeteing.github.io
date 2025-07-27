@@ -174,8 +174,8 @@ body {
   max-width: 1173px;
   width: 100%;
   margin: 0 auto;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
 }
 
 /* Profile Card Styles */
