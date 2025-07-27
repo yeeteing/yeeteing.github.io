@@ -190,12 +190,16 @@ body {
 .profile-content {
   background: var(--light-purple);
   border-radius: 50px;
-  padding: 2rem 1.5rem 1rem;
-  opacity: 0.9;
+  padding: 2.68rem 1.5rem 1rem;
+  opacity: 0.8;
   box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
   text-align: center;
   position: relative;
-  min-height: 600px;
+  width: 493px;
+  height: 632px;
+  margin: 0 auto;
+  margin-top: 0;
+  margin-left: 11px;
   display: flex;
   flex-direction: column;
   align-items: center;
