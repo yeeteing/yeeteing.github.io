@@ -207,7 +207,8 @@ body {
 }
 
 .profile-image-container {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .profile-image {
