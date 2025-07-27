@@ -656,18 +656,21 @@ body {
 }
 
 .resume-nav-btn:hover {
-  background: var(--human);
-  color: var(--deep-red);
+  background: var(--human) !important;
+  color: var(--deep-red) !important;
+  border: 1px solid var(--deep-red) !important;
   transform: translateY(-2px);
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3) !important;
+  outline: none !important;
 }
 
 .resume-nav-btn:active {
-  background: var(--deep-red);
-  color: var(--human);
-  border-color: var(--human);
+  background: var(--deep-red) !important;
+  color: var(--human) !important;
+  border: 1px solid var(--human) !important;
   transform: translateY(0);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  outline: none !important;
 }
 
 .resume-nav-active {
