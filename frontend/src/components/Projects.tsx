@@ -1,6 +1,12 @@
 import React from "react";
 
-const Projects: React.FC = () => {
+type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
+
+interface ProjectsProps {
+  onPageChange: (page: PageType) => void;
+}
+
+const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
   const projects = [
     {
       id: 1,
