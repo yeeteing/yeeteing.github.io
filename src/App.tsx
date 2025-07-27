@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Header, ProfileCard, MainContent, Footer, Resume, Projects, Hobbies, Contact } from "./components";
 import "./App.css";
 
