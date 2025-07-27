@@ -17,7 +17,7 @@ const Hobbies: React.FC<HobbiesProps> = ({ onPageChange }) => {
         <div className="hobbies-navigation">
           <button className="hobbies-nav-btn" onClick={() => onPageChange('resume')}>RESUME</button>
           <button className="hobbies-nav-btn" onClick={() => onPageChange('projects')}>PROJECTS</button>
-          <button className="hobbies-nav-btn hobbies-nav-active">HOBBIES</button>
+          <button className="hobbies-nav-btn hobbies-nav-active" disabled>HOBBIES</button>
         </div>
 
         <div className="hobbies-content">
