@@ -38,9 +38,9 @@ const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
         </div>
         
         <div className="projects-navigation">
-          <button className="projects-nav-btn">RESUME</button>
+          <button className="projects-nav-btn" onClick={() => onPageChange('resume')}>RESUME</button>
           <button className="projects-nav-btn projects-nav-active">PROJECTS</button>
-          <button className="projects-nav-btn">HOBBIES</button>
+          <button className="projects-nav-btn" onClick={() => onPageChange('hobbies')}>HOBBIES</button>
         </div>
 
         <div className="projects-grid">
