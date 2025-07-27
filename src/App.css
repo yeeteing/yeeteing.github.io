@@ -166,6 +166,8 @@ body {
   padding: 1.5rem 3rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .content-wrapper {
@@ -175,7 +177,7 @@ body {
   width: 100%;
   margin: 0 auto;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 /* Profile Card Styles */
@@ -625,6 +627,7 @@ body {
   padding: 2rem 3rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: calc(100vh - 200px);
 }
 
@@ -759,6 +762,7 @@ body {
   padding: 2rem 3rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: calc(100vh - 200px);
 }
 
@@ -1034,6 +1038,7 @@ body {
   padding: 2rem 3rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: calc(100vh - 200px);
 }
 
@@ -1278,6 +1283,7 @@ body {
   padding: 2rem 3rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: calc(100vh - 200px);
 }
 
