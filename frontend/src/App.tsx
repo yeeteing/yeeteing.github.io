@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Header, ProfileCard, MainContent, Footer, Resume, Hobbies } from "./components";
+import { Header, ProfileCard, MainContent, Footer, Resume, Hobbies, Contact } from "./components";
 import "./App.css";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('hobbies');
+  const [currentPage, setCurrentPage] = useState<PageType>('contact');
 
   const renderMainContent = () => {
     switch (currentPage) {
@@ -13,6 +13,8 @@ function App() {
         return <Resume />;
       case 'hobbies':
         return <Hobbies />;
+      case 'contact':
+        return <Contact />;
       case 'home':
       default:
         return (
