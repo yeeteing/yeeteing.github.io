@@ -785,6 +785,11 @@ body {
   color: var(--malibu-sun);
 }
 
+.hobbies-nav-btn:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
 .hobbies-content {
   width: 100%;
   max-width: 900px;
