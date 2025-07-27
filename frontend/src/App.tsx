@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { Header, ProfileCard, MainContent, Footer, Resume, Hobbies, Contact } from "./components";
+import { Header, ProfileCard, MainContent, Footer, Resume, Projects, Hobbies, Contact } from "./components";
 import "./App.css";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('contact');
+  const [currentPage, setCurrentPage] = useState<PageType>('projects');
 
   const renderMainContent = () => {
     switch (currentPage) {
       case 'resume':
         return <Resume />;
+      case 'projects':
+        return <Projects />;
       case 'hobbies':
         return <Hobbies />;
       case 'contact':
