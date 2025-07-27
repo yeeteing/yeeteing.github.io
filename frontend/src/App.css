@@ -182,7 +182,9 @@ body {
 .profile-card {
   position: relative;
   filter: drop-shadow(5px 5px 6px rgba(0, 0, 0, 0.25));
-  flex: 0 0 400px;
+  flex: 0 0 513px;
+  width: 513px;
+  height: 642px;
 }
 
 .profile-content {
