@@ -1124,9 +1124,9 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 45px;
-  border: 1px solid var(--deep-red);
+  border: 1px solid var(--deep-red) !important;
   background: var(--deep-red);
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25) !important;
   color: var(--malibu-sun);
   text-align: center;
   font-family: "Inter", -apple-system, Roboto, Helvetica, sans-serif;
@@ -1135,6 +1135,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
+  outline: none !important;
 }
 
 .submit-button:hover {
