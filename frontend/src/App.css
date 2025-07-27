@@ -197,6 +197,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .profile-image-container {
@@ -282,6 +283,10 @@ body {
   padding: 2.5rem 3rem;
   min-height: 600px;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .content-container {
