@@ -10,11 +10,11 @@ function App() {
   const renderMainContent = () => {
     switch (currentPage) {
       case 'resume':
-        return <Resume />;
+        return <Resume onPageChange={setCurrentPage} />;
       case 'projects':
-        return <Projects />;
+        return <Projects onPageChange={setCurrentPage} />;
       case 'hobbies':
-        return <Hobbies />;
+        return <Hobbies onPageChange={setCurrentPage} />;
       case 'contact':
         return <Contact />;
       case 'home':
