@@ -39,7 +39,7 @@ const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
         
         <div className="projects-navigation">
           <button className="projects-nav-btn" onClick={() => onPageChange('resume')}>RESUME</button>
-          <button className="projects-nav-btn projects-nav-active">PROJECTS</button>
+          <button className="projects-nav-btn projects-nav-active" disabled>PROJECTS</button>
           <button className="projects-nav-btn" onClick={() => onPageChange('hobbies')}>HOBBIES</button>
         </div>
 
