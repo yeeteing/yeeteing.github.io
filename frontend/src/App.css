@@ -311,7 +311,7 @@ body {
 .action-btn {
   padding: 0.4rem 1.2rem;
   border-radius: 45px;
-  border: 1px solid var(--deep-red);
+  border: 1px solid var(--deep-red) !important;
   background: var(--malibu-sun);
   color: var(--deep-red);
   font-family:
@@ -323,10 +323,11 @@ body {
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
   transition: all 0.3s ease;
   opacity: 0.9;
   min-width: 110px;
+  outline: none !important;
 }
 
 .action-btn:hover {
