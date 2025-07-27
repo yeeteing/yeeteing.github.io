@@ -1,6 +1,12 @@
 import React from "react";
 
-const Resume: React.FC = () => {
+type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
+
+interface ResumeProps {
+  onPageChange: (page: PageType) => void;
+}
+
+const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
   return (
     <div className="resume-page">
       <div className="resume-container">
@@ -14,8 +20,8 @@ const Resume: React.FC = () => {
 
         <div className="resume-navigation">
           <button className="resume-nav-btn resume-nav-active">RESUME</button>
-          <button className="resume-nav-btn">PROJECTS</button>
-          <button className="resume-nav-btn">HOBBIES</button>
+          <button className="resume-nav-btn" onClick={() => onPageChange('projects')}>PROJECTS</button>
+          <button className="resume-nav-btn" onClick={() => onPageChange('hobbies')}>HOBBIES</button>
         </div>
 
         <div className="resume-document-container">
