@@ -632,6 +632,13 @@ body {
   object-fit: contain;
 }
 
+.resume-call-icon {
+  position: absolute;
+  bottom: 120px;
+  right: 120px;
+  z-index: 10;
+}
+
 /* Resume page responsive styles */
 @media (max-width: 1200px) {
   .resume-page {
