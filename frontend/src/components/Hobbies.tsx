@@ -1,6 +1,12 @@
 import React from "react";
 
-const Hobbies: React.FC = () => {
+type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
+
+interface HobbiesProps {
+  onPageChange: (page: PageType) => void;
+}
+
+const Hobbies: React.FC<HobbiesProps> = ({ onPageChange }) => {
   return (
     <div className="hobbies-page">
       <div className="hobbies-container">
