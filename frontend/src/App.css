@@ -1249,7 +1249,8 @@ body {
 
 .projects-container {
   max-width: 1173px;
-  width: 100%;
+  width: 1173px;
+  height: 1283px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1259,7 +1260,7 @@ body {
   border-radius: 10px;
   opacity: 0.9;
   box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
-  padding: 2rem;
+  padding: 3rem 2rem;
   gap: 2rem;
 }
 
