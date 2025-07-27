@@ -651,6 +651,11 @@ body {
   color: var(--malibu-sun);
 }
 
+.resume-nav-btn:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
 .resume-document-container {
   width: 100%;
   max-width: 965px;
