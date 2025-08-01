@@ -12,7 +12,6 @@ const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
       <div className="resume-container">
         <div className="resume-header">
           <h1>RESUME</h1>
-          />
         </div>
 
         <div className="resume-navigation">
