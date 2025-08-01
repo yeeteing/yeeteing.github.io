@@ -11,10 +11,7 @@ const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
     <div className="resume-page">
       <div className="resume-container">
         <div className="resume-header">
-          <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/756aa9411c5c34bda88937c4cb886bbad17c2a8a?width=800"
-            alt="RESUME"
-            className="resume-title-image"
+          <h1>RESUME</h1>
           />
         </div>
 
