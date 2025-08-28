@@ -25,12 +25,12 @@ const Hobbies: React.FC<HobbiesProps> = ({ onPageChange }) => {
             <div className="hobby-image">
               <img 
                 src="https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772" 
-                alt="Hobby 1" 
+                alt="Ballet" 
                 className="hobby-img"
               />
             </div>
             <div className="hobby-description">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+              <p>Ballet for 3 years or something</p>
             </div>
           </div>
 
@@ -38,12 +38,25 @@ const Hobbies: React.FC<HobbiesProps> = ({ onPageChange }) => {
             <div className="hobby-image">
               <img 
                 src="https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772" 
-                alt="Hobby 2" 
+                alt="Drumming" 
                 className="hobby-img"
               />
             </div>
             <div className="hobby-description">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+              <p>Drumming for a year</p>
+            </div>
+          </div>
+
+          <div className="hobby-item">
+            <div className="hobby-image">
+              <img 
+                src="https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772" 
+                alt="Weightlifting" 
+                className="hobby-img"
+              />
+            </div>
+            <div className="hobby-description">
+              <p>Weighlifting for 3 years, planning to compete in bodybuilding in one year</p>
             </div>
           </div>
         </div>
