@@ -2,12 +2,12 @@ import React from "react";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
-interface HeaderProps {
+interface NavigationProps {
   currentPage: PageType;
   onPageChange: (page: PageType) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
+const NavigationBar: React.FC<NavigationProps> = ({ currentPage, onPageChange }) => {
   const handleNavClick = (page: PageType, event: React.MouseEvent) => {
     event.preventDefault();
     onPageChange(page);
@@ -61,4 +61,4 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
   );
 };
 
-export default Header;
+export default NavigationBar;
