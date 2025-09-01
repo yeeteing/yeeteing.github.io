@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavigationBar, ProfileCard, Footer } from "./components";
 import { AboutMe, Resume, Projects, Hobbies, Contact } from "./pages";
 
+import "./App.css";
 import "./global.css";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';

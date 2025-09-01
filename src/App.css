@@ -1,0 +1,20 @@
+
+/* Main Layout */
+.main-layout {
+  flex: 1;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 4rem;
+  max-width: 1173px;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Projects.css";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 

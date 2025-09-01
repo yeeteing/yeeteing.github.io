@@ -1,5 +1,6 @@
 import React from "react";
-import type { DisplayContent } from "../utils/utils";
+import type { DisplayContent } from "../../utils/utils";
+import "./DisplayContainer.css";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 

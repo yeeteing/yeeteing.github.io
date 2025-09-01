@@ -1,4 +1,5 @@
 import React from "react";
+import "./NavigationBar.css";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
@@ -14,9 +15,9 @@ const NavigationBar: React.FC<NavigationProps> = ({ currentPage, onPageChange })
   };
 
   return (
-    <header className="header">
-      <div className="header-content">
-        <div className="logo-section">
+    <header className="navigationBar">
+      <div className="navigation-content">
+        <div>
           <h1 className="main-title">YEE TEING LO / Software Developer</h1>
         </div>
         <nav className="navigation">

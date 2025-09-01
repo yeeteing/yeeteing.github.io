@@ -1,5 +1,5 @@
 import React from "react";
-import DisplayContainer from "../components/DisplayContainer";
+import DisplayContainer from "../../components/DisplayContainer/DisplayContainer";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
