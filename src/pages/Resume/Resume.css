@@ -102,10 +102,6 @@
     padding: 0.25rem;
   }
 
-  .action-buttons {
-    display: none;
-  }
-
   .contact-info {
     flex-direction: column;
     gap: 1rem;

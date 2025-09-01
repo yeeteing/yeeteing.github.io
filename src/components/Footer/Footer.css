@@ -51,3 +51,36 @@
 .contact-item strong {
   font-weight: 700;
 }
+/* Responsive Design */
+@media (max-width: 1200px) {
+
+  .footer {
+    padding: 0 3rem;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+}
+
+@media (max-width: 768px) {
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .contact-info {
+    gap: 2rem;
+  }
+
+  .contact-item {
+    font-size: 1rem;
+  }
+
+  .footer {
+    padding: 0 1rem;
+  }
+}
