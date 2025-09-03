@@ -1,17 +1,20 @@
 
 /* display container Styles */
 .display-page {
+  width: 100%; 
+  height: 100%;
   flex: 1;
   padding: 2rem 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: auto;
+  min-height: calc(100vh - 200px);
 }
 
 .display-container {
   max-width: 1173px;
   width: 1173px;
+  height: 1283px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -21,7 +24,7 @@
   border-radius: 10px;
   opacity: 0.9;
   box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
-  padding: 2rem;
+  padding: 3rem 2rem;
   gap: 2rem;
 }
 
@@ -105,8 +108,6 @@
   width: 100%;
   max-width: 965px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex: 1;
 }
 
@@ -119,39 +120,106 @@
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .header {
+  .display-header {
     padding: 1.5rem 3rem;
   }
 
-  .header-content {
-    flex-direction: column;
-    gap: 2rem;
+  .display-page {
+    padding: 1.5rem 2rem;
   }
 
-  .content-wrapper {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .display-container {
+    width: 100%;
+    max-width: 1173px;
+    height: auto;
+    min-height: 800px;
+    padding: 1.5rem;
   }
 
-  .footer {
-    padding: 0 3rem;
+  .display-title {
+    font-size: 3rem;
   }
-}
 
-/* Tablet styles */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .header {
-    padding: 1.25rem 2rem;
+  .display-nav-btn {
+    font-size: 1rem;
+    padding: 0.4rem 1.5rem;
+    min-width: 120px;
+  }
+
+  .display-grid {
+    gap: 2rem 3rem;
+  }
+
+  .project-card {
+    width: 320px;
   }
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding: 1rem 1rem;
-  }
   
-  .profile-content {
-    padding: 1.5rem 1rem 0.75rem;
-    border-radius: 30px;
+  .display-page {
+    padding: 1rem;
+  }
+
+  .display-container {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .display-title {
+    font-size: 2.5rem;
+  }
+
+  .display-navigation {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .display-nav-btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 1.2rem;
+    min-width: 100px;
+    height: 38px;
+  }
+
+  .display-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .display-call-icon {
+    bottom: 80px;
+    right: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .display-navigation {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .display-nav-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .display-title {
+    font-size: 2rem;
+  }
+
+  .project-card {
+    max-width: 280px;
+  }
+
+  .display-call-icon {
+    bottom: 60px;
+    right: 60px;
   }
 }

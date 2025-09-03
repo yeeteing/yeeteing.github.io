@@ -18,3 +18,11 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
