@@ -1,22 +1,23 @@
 import React from "react";
+import "./NavigationBar.css";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
-interface HeaderProps {
+interface NavigationProps {
   currentPage: PageType;
   onPageChange: (page: PageType) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
+const NavigationBar: React.FC<NavigationProps> = ({ currentPage, onPageChange }) => {
   const handleNavClick = (page: PageType, event: React.MouseEvent) => {
     event.preventDefault();
     onPageChange(page);
   };
 
   return (
-    <header className="header">
-      <div className="header-content">
-        <div className="logo-section">
+    <header className="navigationBar">
+      <div className="navigation-content">
+        <div>
           <h1 className="main-title">YEE TEING LO / Software Developer</h1>
         </div>
         <nav className="navigation">
@@ -61,4 +62,4 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
   );
 };
 
-export default Header;
+export default NavigationBar;

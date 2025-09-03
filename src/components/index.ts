@@ -1,8 +1,4 @@
-export { default as Header } from "./Header";
-export { default as ProfileCard } from "./ProfileCard";
-export { default as MainContent } from "./MainContent";
-export { default as Footer } from "./Footer";
-export { default as Resume } from "./Resume";
-export { default as Projects } from "./Projects";
-export { default as Hobbies } from "./Hobbies";
-export { default as Contact } from "./Contact";
+export { default as NavigationBar } from "./NavigationBar/NavigationBar";
+export { default as ProfileCard } from "./ProfileCard/ProfileCard";
+export { default as Footer } from "./Footer/Footer";
+export { default as DisplayContainer } from "./DisplayContainer/DisplayContainer";

@@ -1,4 +1,5 @@
 import React from "react";
+import './Hobbies.css';
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 

@@ -1,6 +1,6 @@
 import React from "react";
-
-const MainContent: React.FC = () => {
+import "./AboutMe.css";
+const AboutMe: React.FC = () => {
   return (
     <div className="main-content">
       <div className="content-container">
@@ -31,4 +31,4 @@ const MainContent: React.FC = () => {
   );
 };
 
-export default MainContent;
+export default AboutMe;

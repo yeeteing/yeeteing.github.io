@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { Header, ProfileCard, MainContent, Footer, Resume, Projects, Hobbies, Contact } from "./components";
+import { NavigationBar, ProfileCard, Footer } from "./components";
+import { AboutMe, Resume, Projects, Hobbies, Contact } from "./pages";
+
 import "./App.css";
+import "./global.css";
 
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
@@ -22,7 +25,7 @@ function App() {
         return (
           <div className="content-wrapper">
             <ProfileCard />
-            <MainContent />
+            <AboutMe />
           </div>
         );
     }
@@ -30,7 +33,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header currentPage={currentPage} onPageChange={setCurrentPage} />
+      <NavigationBar currentPage={currentPage} onPageChange={setCurrentPage} />
       <main className="main-layout">
         {renderMainContent()}
       </main>

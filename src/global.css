@@ -1,0 +1,76 @@
+/* CSS Variables */
+:root {
+  --light-purple: #f2e0f7;
+  --medium-dark-blue: #003c6c;
+  --light-blue: #c2dcf1;
+  --medium-blue: #0069be;
+  --medium-pink: #ff6e78;
+  --deep-red: #b72a41;
+  --malibu-sun: #fcebd8;
+  --human: #ffcd9a;
+  --background-gradient: url("https://cdn.builder.io/api/v1/image/assets%2F361c241d81e8477e824668352e1031fa%2F777f60b144d04ff8aba969c2fd958821?format=webp&width=800");
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default button outlines and styling */
+button {
+  outline: none !important;
+  border: none;
+  background: none;
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:hover {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove blue highlights on touch devices */
+button:focus,
+button:active {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+body {
+  font-family:
+    "Outfit",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  background: var(--background-gradient) lightgray 50% / cover no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--medium-dark-blue);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
