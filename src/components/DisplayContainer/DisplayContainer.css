@@ -108,6 +108,7 @@
   width: 100%;
   max-width: 965px;
   display: flex;
+  padding: 1rem;
   flex: 1;
 }
 
@@ -156,7 +157,6 @@
 }
 
 @media (max-width: 768px) {
-  
   .display-page {
     padding: 1rem;
   }
@@ -200,6 +200,14 @@
 }
 
 @media (max-width: 480px) {
+  .display-page {
+    padding: 0rem;
+  }
+
+  .display-container {
+    padding: 2rem 1rem;
+  }
+  
   .display-navigation {
     flex-direction: column;
     gap: 0.8rem;
@@ -222,4 +230,8 @@
     bottom: 60px;
     right: 60px;
   }
+
+.display-document-container {
+  padding: 0.5rem;
+}
 }

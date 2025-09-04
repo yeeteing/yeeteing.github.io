@@ -26,3 +26,14 @@
     gap: 3rem;
   }
 }
+
+@media (max-width: 480px) {
+  .main-layout {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+}
