@@ -38,6 +38,7 @@
   font-family: "Outfit", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 3.75rem;
   font-weight: 700;
+  text-transform: uppercase;
   color: var(--deep-red);
   text-align: center;
   margin: 0;
@@ -110,13 +111,6 @@
   display: flex;
   padding: 1rem;
   flex: 1;
-}
-
-.display-call-icon {
-  position: absolute;
-  bottom: 120px;
-  right: 120px;
-  z-index: 10;
 }
 
 /* Responsive Design */
@@ -192,11 +186,6 @@
     width: 100%;
     max-width: 350px;
   }
-
-  .display-call-icon {
-    bottom: 80px;
-    right: 80px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -225,12 +214,6 @@
   .project-card {
     max-width: 280px;
   }
-
-  .display-call-icon {
-    bottom: 60px;
-    right: 60px;
-  }
-
 .display-document-container {
   padding: 0.5rem;
 }

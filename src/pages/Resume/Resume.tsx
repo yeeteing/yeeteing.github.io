@@ -10,7 +10,7 @@ interface ResumeProps {
 
 const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
   return (
-      <DisplayContainer onPageChange={onPageChange} display={{ name: "RESUME" }}>
+      <DisplayContainer onPageChange={onPageChange} page="resume">
         <embed 
         className="resume-document" 
         type="application/pdf"

@@ -157,14 +157,6 @@
   letter-spacing: 0.25px;
   margin: 0;
 }
-
-.hobbies-call-icon {
-  position: absolute;
-  bottom: 120px;
-  right: 120px;
-  z-index: 10;
-}
-
 /* Hobbies page responsive styles */
 @media (max-width: 1200px) {
   .hobbies-page {
@@ -243,11 +235,6 @@
   .hobby-description {
     width: 100%;
   }
-
-  .hobbies-call-icon {
-    bottom: 80px;
-    right: 80px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -267,10 +254,5 @@
 
   .hobby-image {
     max-width: 280px;
-  }
-
-  .hobbies-call-icon {
-    bottom: 60px;
-    right: 60px;
   }
 }
