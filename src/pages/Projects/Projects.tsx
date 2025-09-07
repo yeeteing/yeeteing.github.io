@@ -1,5 +1,4 @@
 import React from "react";
-import "./Projects.css";
 import DisplayContainer, { type PageType } from "../../components/DisplayContainer/DisplayContainer";
 import Container, { type Item } from "../../components/Container/Container";
 
