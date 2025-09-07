@@ -1,8 +1,6 @@
 import React from "react";
-import DisplayContainer from "../../components/DisplayContainer/DisplayContainer";
+import DisplayContainer, { type PageType } from "../../components/DisplayContainer/DisplayContainer";
 import "./Resume.css";
-
-type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
 interface ResumeProps {
   onPageChange: (page: PageType) => void;
@@ -16,7 +14,6 @@ const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
         type="application/pdf"
         src="src/assets/Software_Developer_Resume_Basic.pdf"/>
       </DisplayContainer>
-    
   );
 };
 

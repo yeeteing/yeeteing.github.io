@@ -1,7 +1,7 @@
 import React from "react";
 import "./DisplayContainer.css";
 
-type PageType = 'resume' | 'projects' | 'hobbies';
+export type PageType = 'resume' | 'projects' | 'hobbies';
 
 interface DisplayContainerProps {
   onPageChange: (page: PageType) => void;
