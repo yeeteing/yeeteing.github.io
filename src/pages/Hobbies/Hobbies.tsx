@@ -1,5 +1,4 @@
 import React from "react";
-import './Hobbies.css';
 import type { PageType } from "../../components/DisplayContainer/DisplayContainer";
 import type { Item } from "../../components/Container/Container";
 import DisplayContainer from "../../components/DisplayContainer/DisplayContainer";
