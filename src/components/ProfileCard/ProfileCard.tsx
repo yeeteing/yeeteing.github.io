@@ -7,7 +7,7 @@ const ProfileCard: React.FC = () => {
       <div className="profile-content">
         <div className="profile-image-container">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F361c241d81e8477e824668352e1031fa%2F16b644c10fda4af4adab66179879caa1"
+            src="src/assets/profileCardImg.JPG"
             alt="Yee Teing Lo"
             className="profile-image"
           />
