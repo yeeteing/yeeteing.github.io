@@ -1,8 +1,7 @@
-
 /* Main Content Styles */
 .main-content {
   background: var(--light-blue);
-  border-radius: 10px;
+  border-radius: 25px;
   border: 1.5px solid var(--light-purple);
   opacity: 0.8;
   box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
@@ -43,7 +42,7 @@
   gap: 1rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
@@ -87,7 +86,7 @@
   outline: none !important;
 }
 
-.description {
+.aboutme-description {
   color: var(--medium-pink);
   font-size: 1.25rem;
   font-weight: 300;
@@ -95,8 +94,17 @@
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
-.description p {
+.aboutme-description p {
   margin-bottom: 1.5rem;
+}
+
+/* Content visibility control */
+.mobile-content {
+  display: none;
+}
+
+.desktop-content {
+  display: block;
 }
 
 
@@ -114,8 +122,10 @@
 /* Tablet styles */
 @media (max-width: 1024px) and (min-width: 769px) {
 
-  .main-content {
-    padding: 2rem 2rem;
+  .main-content {        
+    padding: 5rem 3rem 1rem;
+    min-height: 600px;
+    max-width: 600px;
   }
 
   .action-buttons {
@@ -136,15 +146,15 @@
     font-size: 1.375rem;
   }
 
-  .description {
+  .aboutme-description {
     font-size: 1.125rem;
   }
 }
 
 @media (max-width: 768px) {
-
   .main-content {
-    padding: 1.5rem 1rem;
+    padding: 5rem 3rem 1rem;
+    max-width: 550px;
   }
 
   .main-heading {
@@ -166,7 +176,54 @@
     min-width: 100px;
   }
 
-  .description {
+  .aboutme-description {
     font-size: 1rem;
+  }
+}
+
+/* Mobile smartphone styles - 480px and below */
+@media (max-width: 480px) {
+  /* Hide desktop content, show mobile content */
+  .desktop-content {
+    display: none;
+  }
+
+  .mobile-content {
+    display: block;
+  }
+
+  .main-content {      
+    padding: 5rem 3rem 1rem;
+    max-width: 350px;
+    margin: 0;
+  }
+
+  .content-container {
+    text-align: center;
+  }
+
+  .main-heading {
+    color: var(--deep-red);
+    font-family: "Outfit", -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: normal;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1.5rem;
+  }
+
+  .mobile-content .aboutme-description {
+    color: var(--medium-pink);
+    font-family: "Outfit", -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.4;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    margin: 0;
+  }
+
+  .mobile-content .aboutme-description p {
+    margin-bottom: 0;
   }
 }

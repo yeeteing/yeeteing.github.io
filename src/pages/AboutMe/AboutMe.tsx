@@ -13,7 +13,7 @@ const AboutMe: React.FC = () => {
           <button className="action-btn">HOBBIES</button>
         </div>
 
-        <div className="description">
+        <div className="aboutme-description">
           <p>
             The About Me or Profile section of your portfolio, is a short
             summary about yourself in relation to the type of role you are
