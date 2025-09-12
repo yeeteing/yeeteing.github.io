@@ -6,7 +6,7 @@ const ProfileCard: React.FC = () => {
     <div className="profile-card">
       <div className="profile-content">
         <div className="profile-image-container">
-          <StorageImage alt="Yee Teing Lo" path="public/portfolio/profileCardImg.JPG" className="profile-image"/>;
+          <StorageImage alt="Yee Teing Lo" path="public/yeeteing-portfolio-website/profileCardImg.JPG" className="profile-image"/>;
         </div>
         <h2 className="profile-name">Yee Teing Lo</h2>
         <div className="profile-divider"></div>
