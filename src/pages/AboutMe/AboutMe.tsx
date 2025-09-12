@@ -16,7 +16,7 @@ const AboutMe: React.FC = () => {
           <p>
             💻 I’m a full-stack developer with 4+ years of experience turning ideas into real, working software. From front-end polish to back-end logic, I love solving tough problems and building things that make an impact.          </p>
           <p>
-            ✨ When I’m not coding, I’m usually dancing, singing, or chasing creative projects. I bring that same energy into my work — curious, collaborative, and always excited to learn and create.          </p>
+            ✨ When I’m not coding, I’m usually dancing, working out, or diving into creative projects. I bring that same energy into my work — curious, collaborative, and always excited to learn and create.          </p>
         </div>
       </div>
     </div>
