@@ -1,16 +1,12 @@
 import React from "react";
 import "./ProfileCard.css";
-
+import { StorageImage } from '@aws-amplify/ui-react-storage';
 const ProfileCard: React.FC = () => {
   return (
     <div className="profile-card">
       <div className="profile-content">
         <div className="profile-image-container">
-          <img
-            src="src/assets/profileCardImg.JPG"
-            alt="Yee Teing Lo"
-            className="profile-image"
-          />
+          <StorageImage alt="Yee Teing Lo" path="public/portfolio/profileCardImg.JPG" className="profile-image"/>;
         </div>
         <h2 className="profile-name">Yee Teing Lo</h2>
         <div className="profile-divider"></div>
