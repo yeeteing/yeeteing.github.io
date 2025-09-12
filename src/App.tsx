@@ -8,7 +8,7 @@ import "./global.css";
 type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('hobbies');
+  const [currentPage, setCurrentPage] = useState<PageType>('home');
 
   const renderMainContent = () => {
     switch (currentPage) {

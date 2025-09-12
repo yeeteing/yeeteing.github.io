@@ -38,6 +38,7 @@
   font-family: "Outfit", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 3.75rem;
   font-weight: 700;
+  text-transform: uppercase;
   color: var(--deep-red);
   text-align: center;
   margin: 0;
@@ -108,14 +109,8 @@
   width: 100%;
   max-width: 965px;
   display: flex;
+  padding: 1rem;
   flex: 1;
-}
-
-.display-call-icon {
-  position: absolute;
-  bottom: 120px;
-  right: 120px;
-  z-index: 10;
 }
 
 /* Responsive Design */
@@ -156,7 +151,6 @@
 }
 
 @media (max-width: 768px) {
-  
   .display-page {
     padding: 1rem;
   }
@@ -192,14 +186,17 @@
     width: 100%;
     max-width: 350px;
   }
-
-  .display-call-icon {
-    bottom: 80px;
-    right: 80px;
-  }
 }
 
 @media (max-width: 480px) {
+  .display-page {
+    padding: 0rem;
+  }
+
+  .display-container {
+    padding: 2rem 1rem;
+  }
+  
   .display-navigation {
     flex-direction: column;
     gap: 0.8rem;
@@ -217,9 +214,7 @@
   .project-card {
     max-width: 280px;
   }
-
-  .display-call-icon {
-    bottom: 60px;
-    right: 60px;
-  }
+.display-document-container {
+  padding: 0.5rem;
+}
 }
