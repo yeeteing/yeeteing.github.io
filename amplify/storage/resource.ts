@@ -2,5 +2,9 @@
     import { defineStorage } from '@aws-amplify/backend';
 
     export const storage = defineStorage({
-      name: 'myImageStorage', // A friendly name for your bucket
+      name: "portfolioStorage", 
+       access: (allow) => ({
+      // Only authenticated users can read/write inside private/
+      "private/*": [allow.authenticated.to(["read", "write"])],
+    }),
     });
