@@ -5,7 +5,7 @@ import "./Resume.css";
 
 const Resume: React.FC = ({  }) => {
   return (
-      <DisplayContainer>
+      <DisplayContainer pageType="resume">
         <iframe 
         className="resume-document"
         src="https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/other/Software_Developer_Resume_Basic.pdf"/>

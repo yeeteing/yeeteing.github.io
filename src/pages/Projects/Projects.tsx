@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
   ];
 
   return (
-     <DisplayContainer>
+     <DisplayContainer pageType="projects">
         <Container items={projects}>
         </Container>
       </DisplayContainer>
