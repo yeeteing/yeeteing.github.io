@@ -9,7 +9,7 @@ const ProfileCard: React.FC = () => {
         <div className="profile-image-container">
           <StorageImage
             alt="Profile"
-            path={({ identityId }) => `private/${identityId}/images/profileCardImg.JPG`}
+            path="public/images/profileCardImg.JPG"
           />
         </div>
         <h2 className="profile-name">Yee Teing Lo</h2>
