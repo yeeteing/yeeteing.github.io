@@ -5,22 +5,28 @@ import Container, { type Item } from "../../components/Container/Container";
 const Projects: React.FC = () => {
   const projects: Item[] = [
     {
-      img: "https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772",
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/tictactoe.mov",
       alt: "Tic Tac Toe Game",
       description: "Developed a Tic Tac Toe game with ReactJs library.",
-      fileType: "image"
+      fileType: "video"
     },
     {
-      img: "https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772",
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/exhangeRate.mov",
       alt: "Exchange Rate Website",
       description: "A basic website that fetches and calculates exchange rates through an API.",
-      fileType: "image"
+      fileType: "video"
     },
     {
-      img: "https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772",
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/ASCIIMath.mov",
       alt: "ASCII Math Question Multiple Choice Game",
       description: "A simple website that generate interactive math questions.",
-      fileType: "image"
+      fileType: "video"
+    },
+    {
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/multipleChoice.mov",
+      alt: "Multiple Choice Game",
+      description: "A simple website that generate interactive multiple choice questions.",
+      fileType: "video"
     }
   ];
 
