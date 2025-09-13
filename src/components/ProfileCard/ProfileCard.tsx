@@ -1,15 +1,15 @@
 import React from "react";
 import "./ProfileCard.css";
-import { StorageImage } from '@aws-amplify/ui-react-storage';
 
 const ProfileCard: React.FC = () => {
   return (
     <div className="profile-card">
       <div className="profile-content">
         <div className="profile-image-container">
-          <StorageImage
-            alt="Profile"
-            path="public/images/profileCardImg.JPG"
+          <img
+            src="https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/profileCardImg.JPG"
+            alt="Yee Teing Lo"
+            className="profile-image"
           />
         </div>
         <h2 className="profile-name">Yee Teing Lo</h2>
@@ -20,7 +20,7 @@ const ProfileCard: React.FC = () => {
           <div className="social-icon">
               <img
                 width="34" height="30" 
-                src="src/assets/LI-In-Bug.png"
+                src="https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/LI-In-Bug.png"
                 alt="LinkedIn"
                 className="icon-image"
                 onClick={() => window.open("https://www.linkedin.com/in/ytlo/", "_blank")}
