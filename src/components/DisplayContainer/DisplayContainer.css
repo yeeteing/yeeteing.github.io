@@ -52,6 +52,8 @@
 }
 
 .display-nav-btn {
+  text-decoration: none;   /* removes underline */
+  display: inline-block;   /* lets it behave like a button */
   padding: 0.5rem 1.75rem;
   border-radius: 45px;
   border: 1px solid var(--deep-red) !important;
@@ -73,6 +75,8 @@
 }
 
 .display-nav-btn:hover {
+  text-decoration: none;   /* removes underline */
+  display: inline-block;   /* lets it behave like a button */
   background: var(--human) !important;
   color: var(--deep-red) !important;
   border: 1px solid var(--deep-red) !important;

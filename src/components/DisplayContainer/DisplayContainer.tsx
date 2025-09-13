@@ -1,35 +1,56 @@
 import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import "./DisplayContainer.css";
 
-export type PageType = 'resume' | 'projects' | 'hobbies';
 
 interface DisplayContainerProps {
-  onPageChange: (page: PageType) => void;
-  page:PageType
   children?: React.ReactNode;
 }
 
-const DisplayContainer: React.FC<DisplayContainerProps> = ({ onPageChange, page, children }) => {
-  console.log(page)
-    return (
+const DisplayContainer: React.FC<DisplayContainerProps> = ({ children }) => {
+  const location = useLocation();
+
+  // Derive current page from the URL path
+  const page = location.pathname.replace("/", "") as PageType;
+
+  return (
     <div className="display-page">
       <div className="display-container">
         <div className="display-header">
-          <h1 className="display-title">{page}</h1>
+          <h1 className="display-title">{page || "home"}</h1>
         </div>
 
         <div className="display-navigation">
-          <button className={`display-nav-btn  ${page==='resume' ? 'display-nav-active' : ''}`} onClick={() => onPageChange('resume')}>RESUME</button>
-          <button className={`display-nav-btn  ${page==='projects' ? 'display-nav-active' : ''}`} onClick={() => onPageChange('projects')}>PROJECTS</button>
-          <button className={`display-nav-btn  ${page==='hobbies' ? 'display-nav-active' : ''}`} onClick={() => onPageChange('hobbies')}>HOBBIES</button>
+          <NavLink
+            to="/resume"
+            className={({ isActive }) =>
+              `display-nav-btn ${isActive ? "display-nav-active" : ""}`
+            }
+          >
+            RESUME
+          </NavLink>
+          <NavLink
+            to="/projects"
+            className={({ isActive }) =>
+              `display-nav-btn ${isActive ? "display-nav-active" : ""}`
+            }
+          >
+            PROJECTS
+          </NavLink>
+          <NavLink
+            to="/hobbies"
+            className={({ isActive }) =>
+              `display-nav-btn ${isActive ? "display-nav-active" : ""}`
+            }
+          >
+            HOBBIES
+          </NavLink>
         </div>
 
-        <div className="display-document-container">
-          {children}
-        </div>
+        <div className="display-document-container">{children}</div>
       </div>
     </div>
-    );
-}
+  );
+};
 
 export default DisplayContainer;

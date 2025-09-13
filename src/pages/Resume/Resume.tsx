@@ -1,17 +1,14 @@
 import React from "react";
-import DisplayContainer, { type PageType } from "../../components/DisplayContainer/DisplayContainer";
+import DisplayContainer from "../../components/DisplayContainer/DisplayContainer";
 import "./Resume.css";
 
-interface ResumeProps {
-  onPageChange: (page: PageType) => void;
-}
 
-const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
+const Resume: React.FC = ({  }) => {
   return (
-      <DisplayContainer onPageChange={onPageChange} page="resume">
+      <DisplayContainer>
         <iframe 
         className="resume-document"
-        src="src/assets/Software_Developer_Resume_Basic.pdf"/>
+        src="https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/other/Software_Developer_Resume_Basic.pdf"/>
       </DisplayContainer>
   );
 };

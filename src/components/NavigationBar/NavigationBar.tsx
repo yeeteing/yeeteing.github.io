@@ -1,18 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./NavigationBar.css";
 
-type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
-interface NavigationProps {
-  currentPage: PageType;
-  onPageChange: (page: PageType) => void;
-}
-
-const NavigationBar: React.FC<NavigationProps> = ({ currentPage, onPageChange }) => {
-  const handleNavClick = (page: PageType, event: React.MouseEvent) => {
-    event.preventDefault();
-    onPageChange(page);
-  };
+const NavigationBar: React.FC = () => {
+ 
 
   return (
     <header className="navigationBar">
@@ -21,41 +13,50 @@ const NavigationBar: React.FC<NavigationProps> = ({ currentPage, onPageChange })
           <h1 className="main-title">YEE TEING LO / Software Developer</h1>
         </div>
         <nav className="navigation">
-          <a
-            href="#about"
-            className={`nav-link ${currentPage === 'home' ? 'nav-link-active' : ''}`}
-            onClick={(e) => handleNavClick('home', e)}
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "nav-link-active" : ""}`
+            }
           >
             ABOUT ME
-          </a>
-          <a
-            href="#resume"
-            className={`nav-link ${currentPage === 'resume' ? 'nav-link-active' : ''}`}
-            onClick={(e) => handleNavClick('resume', e)}
+          </NavLink>
+
+          <NavLink
+            to="/resume"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "nav-link-active" : ""}`
+            }
           >
             RESUME
-          </a>
-          <a
-            href="#projects"
-            className={`nav-link ${currentPage === 'projects' ? 'nav-link-active' : ''}`}
-            onClick={(e) => handleNavClick('projects', e)}
+          </NavLink>
+
+          <NavLink
+            to="/projects"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "nav-link-active" : ""}`
+            }
           >
             PROJECTS
-          </a>
-          <a
-            href="#hobbies"
-            className={`nav-link ${currentPage === 'hobbies' ? 'nav-link-active' : ''}`}
-            onClick={(e) => handleNavClick('hobbies', e)}
+          </NavLink>
+
+          <NavLink
+            to="/hobbies"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "nav-link-active" : ""}`
+            }
           >
             HOBBIES
-          </a>
-          <a
-            href="#contact"
-            className={`nav-link ${currentPage === 'contact' ? 'nav-link-active' : ''}`}
-            onClick={(e) => handleNavClick('contact', e)}
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "nav-link-active" : ""}`
+            }
           >
             CONTACT
-          </a>
+          </NavLink>
         </nav>
       </div>
     </header>
