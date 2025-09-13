@@ -1,32 +1,37 @@
 import React from "react";
-import DisplayContainer, { type PageType } from "../../components/DisplayContainer/DisplayContainer";
+import DisplayContainer from "../../components/DisplayContainer/DisplayContainer";
 import Container, { type Item } from "../../components/Container/Container";
 
-interface ProjectsProps {
-  onPageChange: (page: PageType) => void;
-}
-
-const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
+const Projects: React.FC = () => {
   const projects: Item[] = [
     {
-      img: "https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772",
-      alt: "Ballet",
-      description: "Ballet for 3 years or something"
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/tictactoe.mov",
+      alt: "Tic Tac Toe Game",
+      description: "Developed a Tic Tac Toe game with ReactJs library.",
+      fileType: "video"
     },
     {
-      img: "https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772",
-      alt: "Drumming",
-      description: "Drumming for a year"
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/exhangeRate.mov",
+      alt: "Exchange Rate Website",
+      description: "A basic website that fetches and calculates exchange rates through an API.",
+      fileType: "video"
     },
     {
-      img: "https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772",
-      alt: "Weightlifting",
-      description: "Weighlifting for 3 years, planning to compete in bodybuilding in one year"
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/ASCIIMath.mov",
+      alt: "ASCII Math Question Multiple Choice Game",
+      description: "A simple website that generate interactive math questions.",
+      fileType: "video"
+    },
+    {
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/multipleChoice.mov",
+      alt: "Multiple Choice Game",
+      description: "A simple website that generate interactive multiple choice questions.",
+      fileType: "video"
     }
   ];
 
   return (
-     <DisplayContainer onPageChange={onPageChange} page="projects">
+     <DisplayContainer>
         <Container items={projects}>
         </Container>
       </DisplayContainer>
