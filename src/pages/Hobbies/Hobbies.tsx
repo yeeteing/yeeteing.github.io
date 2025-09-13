@@ -27,7 +27,7 @@ const Hobbies: React.FC = () => {
   ];
 
   return (
-     <DisplayContainer >
+     <DisplayContainer pageType="hobbies">
         <Container items={hobbies}>
         </Container>
       </DisplayContainer>

@@ -1,23 +1,19 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./DisplayContainer.css";
 
 
 interface DisplayContainerProps {
+  pageType: "resume" | "projects" | "hobbies";
   children?: React.ReactNode;
 }
 
-const DisplayContainer: React.FC<DisplayContainerProps> = ({ children }) => {
-  const location = useLocation();
-
-  // Derive current page from the URL path
-  const page = location.pathname.replace("/", "") as PageType;
-
+const DisplayContainer: React.FC<DisplayContainerProps> = ({ children, pageType }) => {
   return (
     <div className="display-page">
       <div className="display-container">
         <div className="display-header">
-          <h1 className="display-title">{page || "home"}</h1>
+          <h1 className="display-title">{pageType}</h1>
         </div>
 
         <div className="display-navigation">

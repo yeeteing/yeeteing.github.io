@@ -217,8 +217,9 @@
 
   .project-card {
     max-width: 280px;
+    }
+    
+  .display-document-container {
+    padding: 0.5rem;
   }
-.display-document-container {
-  padding: 0.5rem;
-}
 }
