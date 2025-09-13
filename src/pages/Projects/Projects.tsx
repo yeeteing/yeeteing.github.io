@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
     {
       img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/ASCIIMath.mov",
       alt: "ASCII Math Question Multiple Choice Game",
-      description: "A simple website that generate interactive math questions.",
+      description: "A simple website that generate interactive ASCII math questions.",
       fileType: "video"
     },
     {
