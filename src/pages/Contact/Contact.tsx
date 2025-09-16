@@ -18,7 +18,8 @@ const Contact: React.FC = () => {
   const LAMBDA_URL = "https://b2gxtsa4wiimbfsoeuiuwvgcu40yukin.lambda-url.us-east-2.on.aws/"; 
 
   function showMessage(text: string, type: 'success' | 'error') {
-    const messageDiv = document.getElementById("form-message");
+    console.log(text, type);
+    // const messageDiv = document.getElementById("form-message");
     // messageDiv.textContent = text;
     // messageDiv.className = `form-message ${type}`;
     // messageDiv.style.display = "block";
