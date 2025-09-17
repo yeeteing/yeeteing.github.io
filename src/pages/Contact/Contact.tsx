@@ -23,7 +23,7 @@ function Submit() {
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
-  function showMessage(text: string, type: 'success' | 'error') {
+  function showMessage(text: string, type: 'success' | 'error' | 'info') {
     const messageDiv = document.getElementById("form-message");
     if (messageDiv) {
       messageDiv.textContent = text;
@@ -38,6 +38,7 @@ const Contact: React.FC = () => {
   }
 
   const onAction = (formData: FormData) => {
+    showMessage( "Sending message...", "info");
     // const messageDiv = document.getElementById("form-message");
     // messageDiv.style.display = "none";
     // Use state formData for sending
