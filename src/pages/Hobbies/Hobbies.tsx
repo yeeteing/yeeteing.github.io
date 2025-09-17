@@ -25,7 +25,7 @@ const Hobbies: React.FC = () => {
       fileType: "image"
     },
     {
-      img: "src/assets/Eating.mov",
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/Eating.mov",
       alt: "Eating",
       description: "📸 I love making food content and fun videos on Instagram. You can find me at @lola.thefoodexplorer.",
       fileType: "video"
