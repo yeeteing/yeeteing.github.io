@@ -14,7 +14,6 @@
 .contact-container {
   max-width: 1173px;
   width: 1173px;
-  height: 1283px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -159,6 +158,17 @@
   border: 1px solid var(--deep-red) !important;
 }
 
+.form-message.info {
+  color: var(--medium-dark-blue);
+}
+
+.form-message.success {
+  color: var(--success);
+}
+
+.form-message.error {
+  color: var(--error);
+}
 /* Contact page responsive styles */
 @media (max-width: 1200px) {
   .contact-page {
@@ -173,7 +183,6 @@
     width: 100%;
     max-width: 1173px;
     height: auto;
-    min-height: 800px;
     padding: 1.5rem;
   }
 
