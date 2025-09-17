@@ -9,20 +9,26 @@ const Hobbies: React.FC = () => {
     {
       img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/Ballet.JPG",
       alt: "Ballet",
-      description: "Ballet for 3 years or something",
+      description: "✨ Been doing ballet for about 2-3 years, still chasing that perfect pirouette.",
       fileType: "image"
     },
     {
       img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/Drumming.mov",
       alt: "Drumming",
-      description: "Drumming for a year",
+      description: "🥁 Drummed for a year. Took a pause to focus on my career, but the sticks are waiting for me.",
       fileType: "video"
     },
     {
       img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/flex.jpg",
       alt: "Weightlifting",
-      description: "Weighlifting for 3 years, planning to compete in bodybuilding in one year",
+      description: "💪 Love lifting weights. It’s my way to recharge and feel strong.",
       fileType: "image"
+    },
+    {
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/Eating.mov",
+      alt: "Eating",
+      description: "📸 I love making food content and fun videos on Instagram. You can find me at @lola.thefoodexplorer.",
+      fileType: "video"
     }
   ];
 
