@@ -31,4 +31,3 @@ This repository contains multiple versions of my personal portfolio website.
     - Only **POST requests** are accepted; all other methods are blocked.  
     - The Lambda runs with least-privilege **IAM permissions** (only `sns:Publish` access).  
 ---
-
