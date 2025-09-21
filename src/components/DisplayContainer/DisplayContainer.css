@@ -14,7 +14,7 @@
 .display-container {
   max-width: 1173px;
   width: 1173px;
-  height: 1283px;
+  min-height: 1283px;
   position: relative;
   display: flex;
   flex-direction: column;
