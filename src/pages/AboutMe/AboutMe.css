@@ -47,6 +47,8 @@
 }
 
 .action-btn {
+  text-decoration: none;   /* removes underline */
+  display: inline-block;   /* lets it behave like a button */
   padding: 0.4rem 1.2rem;
   border-radius: 45px;
   border: 1px solid var(--deep-red) !important;

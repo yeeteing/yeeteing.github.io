@@ -7,7 +7,7 @@ const ProfileCard: React.FC = () => {
       <div className="profile-content">
         <div className="profile-image-container">
           <img
-            src="src/assets/profileCardImg.JPG"
+            src="https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/profileCardImg.JPG"
             alt="Yee Teing Lo"
             className="profile-image"
           />
@@ -20,7 +20,7 @@ const ProfileCard: React.FC = () => {
           <div className="social-icon">
               <img
                 width="34" height="30" 
-                src="src/assets/LI-In-Bug.png"
+                src="https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/LI-In-Bug.png"
                 alt="LinkedIn"
                 className="icon-image"
                 onClick={() => window.open("https://www.linkedin.com/in/ytlo/", "_blank")}

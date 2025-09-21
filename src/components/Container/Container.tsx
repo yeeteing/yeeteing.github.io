@@ -9,7 +9,9 @@ export interface Item {
   img: string;
   alt: string;
   description: string;
+  fileType: "image" | "video";
 }
+
 
 const Container: React.FC<ContainerProps> = ({ items }) => {
   return (
@@ -17,7 +19,13 @@ const Container: React.FC<ContainerProps> = ({ items }) => {
       {items.map((item, idx) => (
         <div className="item" key={idx}>
           <div className="image">
-            <img src={item.img} alt={item.alt} className="img" />
+            {item.fileType === "image" ? (
+              <img src={item.img} alt={item.alt} className="img" />
+            ) : item.fileType === "video" ? (
+              <video src={item.img} className="img" controls />
+            ) : (
+              <iframe src={item.img} className="img"></iframe>
+            )}
           </div>
           <div className="description">
             <p>{item.description}</p>

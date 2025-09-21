@@ -1,44 +1,37 @@
-import { useState } from "react";
 import { NavigationBar, ProfileCard, Footer } from "./components";
 import { AboutMe, Resume, Projects, Hobbies, Contact } from "./pages";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import "./global.css";
 
-type PageType = 'home' | 'resume' | 'projects' | 'hobbies' | 'contact';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
-
-  const renderMainContent = () => {
-    switch (currentPage) {
-      case 'resume':
-        return <Resume onPageChange={setCurrentPage} />;
-      case 'projects':
-        return <Projects onPageChange={setCurrentPage} />;
-      case 'hobbies':
-        return <Hobbies onPageChange={setCurrentPage} />;
-      case 'contact':
-        return <Contact />;
-      case 'home':
-      default:
-        return (
-          <div className="content-wrapper">
-            <ProfileCard />
-            <AboutMe />
-          </div>
-        );
-    }
-  };
-
+  
   return (
-    <div className="app">
-      <NavigationBar currentPage={currentPage} onPageChange={setCurrentPage} />
-      <main className="main-layout">
-        {renderMainContent()}
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <NavigationBar/>
+        <main className="main-layout">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div className="content-wrapper">
+                  <ProfileCard />
+                  <AboutMe />
+                </div>
+              }
+            />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/hobbies" element={<Hobbies />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

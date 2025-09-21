@@ -1,34 +1,39 @@
 import React from "react";
-import type { PageType } from "../../components/DisplayContainer/DisplayContainer";
 import type { Item } from "../../components/Container/Container";
 import DisplayContainer from "../../components/DisplayContainer/DisplayContainer";
 import Container from "../../components/Container/Container";
 
-interface HobbiesProps {
-  onPageChange: (page: PageType) => void;
-}
 
-const Hobbies: React.FC<HobbiesProps> = ({ onPageChange }) => {
+const Hobbies: React.FC = () => {
   const hobbies: Item[] = [
     {
-      img: "https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772",
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/Ballet.JPG",
       alt: "Ballet",
-      description: "Ballet for 3 years or something"
+      description: "✨ Been doing ballet for about 2-3 years, still chasing that perfect pirouette.",
+      fileType: "image"
     },
     {
-      img: "https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772",
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/Drumming.mov",
       alt: "Drumming",
-      description: "Drumming for a year"
+      description: "🥁 Drummed for a year. Took a pause to focus on my career, but the sticks are waiting for me.",
+      fileType: "video"
     },
     {
-      img: "https://api.builder.io/api/v1/image/assets/TEMP/b28d4adb268cedb819d4f1136696015b046cd4aa?width=772",
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/flex.jpg",
       alt: "Weightlifting",
-      description: "Weighlifting for 3 years, planning to compete in bodybuilding in one year"
+      description: "💪 Love lifting weights. It’s my way to recharge and feel strong.",
+      fileType: "image"
+    },
+    {
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/Eating.mov",
+      alt: "Eating",
+      description: "📸 I love making food content and fun videos on Instagram. You can find me at @lola.thefoodexplorer.",
+      fileType: "video"
     }
   ];
 
   return (
-     <DisplayContainer onPageChange={onPageChange} page="hobbies">
+     <DisplayContainer pageType="hobbies">
         <Container items={hobbies}>
         </Container>
       </DisplayContainer>

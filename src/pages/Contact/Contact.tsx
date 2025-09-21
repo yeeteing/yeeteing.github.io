@@ -1,25 +1,73 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import './Contact.css';
+import { sendContactEmail } from "./ContactApi";
+import { useFormStatus } from "react-dom";
+
+export type DataToSend = {
+  name: string;
+  surname: string;
+  email: string;
+  message: string;
+};
+
+function Submit() {
+  const { pending } = useFormStatus();
+  console.log(pending);
+  return (
+    <button type="submit" disabled={pending} className="submit-button">
+      {pending ? "Submitting..." : "Submit"}
+    </button>
+  );
+}
+
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
-    email: '',
-    message: ''
-  });
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  function showMessage(text: string, type: 'success' | 'error' | 'info') {
+    const messageDiv = document.getElementById("form-message");
+    if (messageDiv) {
+      messageDiv.textContent = text;
+      messageDiv.className = `form-message ${type}`;
+      messageDiv.style.display = "block";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+      // Auto-hide after 10 seconds
+      setTimeout(() => {
+        messageDiv.style.display = "none";
+      }, 100000);
+    }
+  }
+
+  const onAction = (formData: FormData) => {
+    showMessage( "Sending message...", "info");
+    // const messageDiv = document.getElementById("form-message");
+    // messageDiv.style.display = "none";
+    // Use state formData for sending
+    const dataToSend: DataToSend = {
+      name: String(formData.get('name') ?? ''),
+      surname: String(formData.get('surname') ?? ''),
+      email: String(formData.get('email') ?? ''),
+      message: String(formData.get('message') ?? ''),
+    };
+
+    sendContactEmail(dataToSend)
+      .then((response) => {
+        if (response.ok) {
+          showMessage(
+            "Message sent successfully! Thank you for reaching out.",
+            "success"
+          );
+          formRef.current?.reset();
+        } else {
+          showMessage("Failed to send message. Please try again.", "error");
+        }
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+        showMessage(
+          "Network error. Please check your connection and try again.",
+          "error"
+        );
+      });
   };
 
   return (
@@ -29,16 +77,15 @@ const Contact: React.FC = () => {
           <h1 className="contact-title">CONTACT</h1>
         </div>
         
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" action={onAction} ref={formRef}>
           <div className="form-field">
             <label className="form-label">Name</label>
             <input
               type="text"
               name="name"
-              value={formData.name}
-              onChange={handleInputChange}
               placeholder="John"
               className="form-input"
+              required
             />
           </div>
 
@@ -47,10 +94,9 @@ const Contact: React.FC = () => {
             <input
               type="text"
               name="surname"
-              value={formData.surname}
-              onChange={handleInputChange}
               placeholder="Wick"
               className="form-input"
+              required
             />
           </div>
 
@@ -59,10 +105,9 @@ const Contact: React.FC = () => {
             <input
               type="email"
               name="email"
-              value={formData.email}
-              onChange={handleInputChange}
               placeholder="johnwick@gmail.com"
               className="form-input"
+              required
             />
           </div>
 
@@ -70,17 +115,16 @@ const Contact: React.FC = () => {
             <label className="form-label">Message</label>
             <textarea
               name="message"
-              value={formData.message}
-              onChange={handleInputChange}
               placeholder="Placeholder.."
               className="form-textarea"
               rows={4}
+              required
             />
           </div>
 
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
+          <Submit />
+
+          <div id="form-message" className="form-message"> </div>
         </form>
       </div>
     </div>
