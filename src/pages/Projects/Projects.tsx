@@ -5,6 +5,12 @@ import Container, { type Item } from "../../components/Container/Container";
 const Projects: React.FC = () => {
   const projects: Item[] = [
     {
+      img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/ai-kb-demo.mov",
+      alt: "Conversational AI Engine",
+      description: "Built with clean APIs, fast PostgreSQL search, and response-time tracking, with optional AI integration for smarter answers.",
+      fileType: "video"
+    },
+    {
       img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/tictactoe.mov",
       alt: "Tic Tac Toe Game",
       description: "Developed a Tic Tac Toe game with ReactJs library.",
