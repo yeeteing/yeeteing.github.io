@@ -4,3 +4,5 @@ node_modules
 .amplify
 amplify_outputs*
 amplifyconfiguration*
+src/.DS_Store
+.DS_Store
