@@ -18,10 +18,17 @@ This repository contains multiple versions of my personal portfolio website.
 - **Frontend:** Built with **React.js**.  
 - **Design Workflow:** Drafted the initial page with **Figma** and **Builder.io AI**, then customized it further based on my own vision.  
 - **Media Hosting:** Images, videos and other files are stored in an **AWS S3 bucket**.  
-- **Contact Form:**  
-  - Visitors can fill out a form to get in touch.  
-  - The form triggers an **AWS Lambda function**, which uses **SNS (Simple Notification Service)** to send me an email notification.  
 
+- **Contact Form:**  
+  - The portfolio includes a contact form so visitors can reach me directly.  
+  - When the form is submitted:
+    1. The request is sent to my **AWS Lambda Function URL** (HTTPS endpoint).  
+    2. The Lambda executes with an **IAM role** that allows it to publish messages to **SNS**.  
+    3. SNS then sends me an email notification with the visitor’s message.  
+![contact form email](gitAssets/contactFormEmail.png)
+  - **Security:**  
+    - The **Lambda Function URL** is configured with **CORS rules** so only my portfolio domain can make requests.  
+    - Only **POST requests** are accepted; all other methods are blocked.  
+    - The Lambda runs with least-privilege **IAM permissions** (only `sns:Publish` access).  
 ---
 
-![contact form email](gitAssets/contactFormEmail.png)
