@@ -1,69 +1,27 @@
-# React + TypeScript + Vite
+# Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains multiple versions of my personal portfolio website.
 
-Currently, two official plugins are available:
+## 🌐 Old Version
+- The **oldVersion** branch contains a static website built and hosted with **GitHub Pages**.
+- I configured GitHub Actions so that the site only updates when I deploy to the `oldVersion` branch.
+- This version is what powers: [https://yeeteing.github.io/](https://yeeteing.github.io/).
+![old version portfolio](gitAssets/oldVersion-page.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🚀 Recent Version
+- The **aws-master** branch hosts my **current portfolio** website using **AWS Amplify**.
+- Amplify is set up for automated deployments whenever I push changes to `aws-master`.
+![awsAmplify version](gitAssets/awsAmplify-version.gif)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🛠️ Tech & Tools
+- **Frontend:** Built with **React.js**.  
+- **Design Workflow:** Drafted the initial page with **Figma** and **Builder.io AI**, then customized it further based on my own vision.  
+- **Media Hosting:** Images, videos and other files are stored in an **AWS S3 bucket**.  
+- **Contact Form:**  
+  - Visitors can fill out a form to get in touch.  
+  - The form triggers an **AWS Lambda function**, which uses **SNS (Simple Notification Service)** to send me an email notification.  
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+![contact form email](gitAssets/contactFormEmail.png)
