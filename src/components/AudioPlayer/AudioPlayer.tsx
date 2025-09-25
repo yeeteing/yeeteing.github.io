@@ -1,74 +1,116 @@
-import React, { useState } from "react";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface AudioPlayerProps {
   src?: string;
-  volume?: number;
-  autoPlay?: boolean;
+  volume?: number; // 0.0 - 1.0
   loop?: boolean;
 }
+
+const STORAGE_KEY = "bg-audio-consent"; // "granted" | "denied" | null
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({
   src = "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/other/In+Dreamland+by+Chillpeach.mp3",
   volume = 0.6,
-  autoPlay = true,
   loop = true,
 }) => {
   const ref = useRef<HTMLAudioElement>(null);
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState<boolean>(() => {
+    // If user previously granted sound, start unmuted (will still need a gesture on first-ever visit)
+    return localStorage.getItem(STORAGE_KEY) === "granted" ? false : true;
+  });
 
+  // Try to start playback on mount (must be muted initially for autoplay to work)
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     el.volume = volume;
-    // Autoplay with sound is blocked; start muted so it can start, user can then unmute.
-    el.muted = false;
+    // IMPORTANT: set the *property* and keep the muted *attribute* on the element initially
+    el.muted = true;
 
-    // Try to start right away (muted)
     el.play().catch(() => {
-      // If blocked, it will start once the user interacts with the page.
+      // Some browsers still block until a gesture; handled below.
     });
   }, [volume]);
+
+  // If user preference is "sound on", unmute after first user gesture
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const wantSound = !muted;
+
+    const unlock = () => {
+      if (!wantSound) return;
+      el.muted = false;
+      el.play().catch(() => {/* ignore */});
+      document.removeEventListener("pointerdown", unlock);
+      document.removeEventListener("keydown", unlock);
+      document.removeEventListener("touchstart", unlock);
+    };
+
+    if (wantSound) {
+      document.addEventListener("pointerdown", unlock, { once: true });
+      document.addEventListener("keydown", unlock, { once: true });
+      document.addEventListener("touchstart", unlock, { once: true });
+    }
+
+    return () => {
+      document.removeEventListener("pointerdown", unlock);
+      document.removeEventListener("keydown", unlock);
+      document.removeEventListener("touchstart", unlock);
+    };
+  }, [muted]);
+
   const toggleMute = () => {
     const el = ref.current;
     if (!el) return;
-    if (muted) {
-      el.muted = false;
-      el.play();
-      setMuted(false);
+    const nextMuted = !muted;
+    setMuted(nextMuted);
+    el.muted = nextMuted;
+
+    if (!nextMuted) {
+      // user chose sound
+      localStorage.setItem(STORAGE_KEY, "granted");
+      el.play().catch(() => {/* will start after next gesture if needed */});
     } else {
-      el.muted = true;
-      setMuted(true);
+      localStorage.setItem(STORAGE_KEY, "denied");
     }
   };
+
   return (
     <>
+      {/* Keep the muted attribute so initial autoplay succeeds */}
       <audio
         ref={ref}
         src={src}
         autoPlay
-        loop
+        loop={loop}
+        muted // <- attribute helps Safari/Chrome decide autoplay policy at parse time
         playsInline
+        preload="auto"
       />
       <button
         onClick={toggleMute}
+        aria-label={muted ? "Unmute background music" : "Mute background music"}
         style={{
           position: "fixed",
-          left: "36px",
-          top: "16px",
+          left: 36,
+          top: 16,
           zIndex: 1000,
           padding: "8px 12px",
-          borderRadius: "9999px",
-          color: "#ffffff",
-          fontSize: "34px",
+          borderRadius: 9999,
+          color: "#fff",
+          fontSize: 34,
           cursor: "pointer",
+          background: "transparent",
+          border: "none",
         }}
+        title={muted ? "Unmute" : "Mute"}
       >
-        {muted ? "🔇 " : "🔊 "}
+        {muted ? "🔇" : "🔊"}
       </button>
     </>
-    
   );
 };
 
