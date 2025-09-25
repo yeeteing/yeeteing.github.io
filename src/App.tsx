@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import "./global.css";
+import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
+        <div style={{ position: "fixed", right: 16, bottom: 16, zIndex: 1000 }}>
+        <AudioPlayer />
+      </div>
         <NavigationBar/>
         <main className="main-layout">
           <Routes>
