@@ -31,3 +31,34 @@ This repository contains multiple versions of my personal portfolio website.
     - Only **POST requests** are accepted; all other methods are blocked.  
     - The Lambda runs with least-privilege **IAM permissions** (only `sns:Publish` access).  
 ---
+# Amplify Sandbox Setup
+
+The **aws-master** project uses [AWS Amplify](https://docs.amplify.aws/) for backend resources.  
+You can run a **temporary sandbox environment** locally using the Amplify CLI.
+
+---
+
+## 1. Install Dependencies
+
+Make sure you have Node.js 18+ installed, then install Amplify:
+
+```
+npm install -g @aws-amplify/cli
+```
+Or just use npx:
+```
+npx ampx --version
+```
+From the project root, run:
+```
+
+npx ampx sandbox
+```
+
+This will:
+
+Spin up a temporary Amplify backend in the cloud
+
+Generate a local amplify_outputs.json file
+
+Keep it updated while the sandbox is running
