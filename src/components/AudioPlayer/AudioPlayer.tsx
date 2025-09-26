@@ -1,115 +1,72 @@
 import React, { useEffect, useRef, useState } from "react";
 
-interface AudioPlayerProps {
-  src?: string;
-  volume?: number; // 0.0 - 1.0
-  loop?: boolean;
-}
+type Props = {
+  src: string;
+  play: boolean;
+  volume?: number;
+};
 
-const STORAGE_KEY = "bg-audio-consent"; // "granted" | "denied" | null
+const BTN_SIZE = 56;
 
-const AudioPlayer: React.FC<AudioPlayerProps> = ({
-  src = "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/other/In+Dreamland+by+Chillpeach.mp3",
-  volume = 0.6,
-  loop = true,
-}) => {
-  const ref = useRef<HTMLAudioElement>(null);
-  const [muted, setMuted] = useState<boolean>(() => {
-    // If user previously granted sound, start unmuted (will still need a gesture on first-ever visit)
-    return localStorage.getItem(STORAGE_KEY) === "granted" ? false : true;
-  });
+const AudioPlayer: React.FC<Props> = ({ src, play, volume = 0.6 }) => {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [muted, setMuted] = useState(false);
 
-  // Try to start playback on mount (must be muted initially for autoplay to work)
+  // Audio control
   useEffect(() => {
-    const el = ref.current;
+    const el = audioRef.current;
     if (!el) return;
-
     el.volume = volume;
-    // IMPORTANT: set the *property* and keep the muted *attribute* on the element initially
-    el.muted = true;
 
-    el.play().catch(() => {
-      // Some browsers still block until a gesture; handled below.
-    });
-  }, [volume]);
-
-  // If user preference is "sound on", unmute after first user gesture
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const wantSound = !muted;
-
-    const unlock = () => {
-      if (!wantSound) return;
-      el.muted = false;
-      el.play().catch(() => {/* ignore */});
-      document.removeEventListener("pointerdown", unlock);
-      document.removeEventListener("keydown", unlock);
-      document.removeEventListener("touchstart", unlock);
-    };
-
-    if (wantSound) {
-      document.addEventListener("pointerdown", unlock, { once: true });
-      document.addEventListener("keydown", unlock, { once: true });
-      document.addEventListener("touchstart", unlock, { once: true });
+    if (play) {
+      el.muted = muted;
+      el.play().catch(() => {});
+    } else {
+      el.pause();
     }
-
-    return () => {
-      document.removeEventListener("pointerdown", unlock);
-      document.removeEventListener("keydown", unlock);
-      document.removeEventListener("touchstart", unlock);
-    };
-  }, [muted]);
+  }, [play, muted, volume]);
 
   const toggleMute = () => {
-    const el = ref.current;
+    const el = audioRef.current;
     if (!el) return;
-    const nextMuted = !muted;
-    setMuted(nextMuted);
-    el.muted = nextMuted;
-
-    if (!nextMuted) {
-      // user chose sound
-      localStorage.setItem(STORAGE_KEY, "granted");
-      el.play().catch(() => {/* will start after next gesture if needed */});
-    } else {
-      localStorage.setItem(STORAGE_KEY, "denied");
-    }
+    const next = !muted;
+    setMuted(next);
+    el.muted = next;
+    if (!next) el.play().catch(() => {});
   };
 
   return (
     <>
-      {/* Keep the muted attribute so initial autoplay succeeds */}
-      <audio
-        ref={ref}
-        src={src}
-        autoPlay
-        loop={loop}
-        muted // <- attribute helps Safari/Chrome decide autoplay policy at parse time
-        playsInline
-        preload="auto"
-      />
-      <button
-        onClick={toggleMute}
-        aria-label={muted ? "Unmute background music" : "Mute background music"}
-        style={{
-          position: "fixed",
-          left: 36,
-          top: 16,
-          zIndex: 1000,
-          padding: "8px 12px",
-          borderRadius: 9999,
-          color: "#fff",
-          fontSize: 34,
-          cursor: "pointer",
-          background: "transparent",
-          border: "none",
-        }}
-        title={muted ? "Unmute" : "Mute"}
-      >
-        {muted ? "🔇" : "🔊"}
-      </button>
+      <audio ref={audioRef} src={src} loop playsInline preload="auto" />
+      {play && (
+        <button
+          onClick={toggleMute}
+          aria-label={muted ? "Unmute background music" : "Mute background music"}
+          title={muted ? "Unmute" : "Mute"}
+          style={{
+            position: "fixed",
+            right: 24,
+            bottom: 30,
+            width: BTN_SIZE,
+            height: BTN_SIZE,
+            borderRadius: "50%",
+            border: "1px solid",
+            borderColor: muted ? "var(--medium-dark-blue)" : "var(--deep-red)",
+            background: muted ? "var(--light-blue)" : "var(--medium-pink)",
+            color: muted ? "var(--medium-dark-blue)" : "#fff",
+            opacity: 0.7,
+            fontSize: 22,
+            cursor: "pointer",
+            boxShadow: "0 8px 22px rgba(0,0,0,.25)",
+            display: "grid",
+            placeItems: "center",
+            userSelect: "none",
+            transition: "background .2s ease, border .2s ease",
+          }}
+        >
+          {muted ? "🔇" : "🔊"}
+        </button>
+      )}
     </>
   );
 };
