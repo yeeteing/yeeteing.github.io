@@ -4,11 +4,12 @@ type Props = {
   src: string;
   play: boolean;
   volume?: number;
+  externalPause?: boolean;
 };
 
 const BTN_SIZE = 56;
 
-const AudioPlayer: React.FC<Props> = ({ src, play, volume = 0.6 }) => {
+const AudioPlayer: React.FC<Props> = ({ src, play, volume = 0.6, externalPause = false }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [muted, setMuted] = useState(false);
 
@@ -18,13 +19,13 @@ const AudioPlayer: React.FC<Props> = ({ src, play, volume = 0.6 }) => {
     if (!el) return;
     el.volume = volume;
 
-    if (play) {
+    if (play && !externalPause) {
       el.muted = muted;
       el.play().catch(() => {});
     } else {
       el.pause();
     }
-  }, [play, muted, volume]);
+  }, [play, muted, volume, externalPause]);
 
   const toggleMute = () => {
     const el = audioRef.current;

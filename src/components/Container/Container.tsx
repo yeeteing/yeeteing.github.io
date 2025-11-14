@@ -3,6 +3,7 @@ import "./Container.css";
 
 interface ContainerProps {
   items: Array<Item>;
+  onVideoPlayChange?: (isPlaying: boolean) => void;
 }
 
 export interface Item {
@@ -14,7 +15,19 @@ export interface Item {
 }
 
 
-const Container: React.FC<ContainerProps> = ({ items }) => {
+const Container: React.FC<ContainerProps> = ({ items, onVideoPlayChange }) => {
+  const handleVideoPlay = () => {
+    onVideoPlayChange?.(true);
+  };
+
+  const handleVideoPause = () => {
+    onVideoPlayChange?.(false);
+  };
+
+  const handleVideoEnded = () => {
+    onVideoPlayChange?.(false);
+  };
+
   return (
     <div className="content">
       {items.map((item, idx) => (
@@ -23,7 +36,14 @@ const Container: React.FC<ContainerProps> = ({ items }) => {
             {item.fileType === "image" ? (
               <img src={item.img} alt={item.alt} className={`img ${item.size}`} />
             ) : item.fileType === "video" ? (
-              <video src={item.img} className={`img ${item.size}`} controls />
+              <video
+                src={item.img}
+                className={`img ${item.size}`}
+                controls
+                onPlay={handleVideoPlay}
+                onPause={handleVideoPause}
+                onEnded={handleVideoEnded}
+              />
             ) : (
               <iframe src={item.img} className="img"></iframe>
             )}

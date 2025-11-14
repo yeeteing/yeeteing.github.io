@@ -12,6 +12,7 @@ import SoundConsent from "./components/SoundConsent/SoundConsent";
 function App() {
   const [asked, setAsked] = useState(false);
   const [play, setPlay] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const grant = () => {
     setPlay(true);   // start with sound on
@@ -27,8 +28,9 @@ function App() {
         <SoundConsent open={!asked} onGrant={grant} onDeny={deny} />
         <div style={{ position: "fixed", right: 16, bottom: 16, zIndex: 1000 }}>
         <AudioPlayer  src="https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/other/In+Dreamland+by+Chillpeach.mp3"
-        play={play}/>
-        
+        play={play}
+        externalPause={isVideoPlaying}/>
+
       </div>
         <NavigationBar/>
         <main className="main-layout">
@@ -44,7 +46,7 @@ function App() {
             />
             <Route path="/resume" element={<Resume />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/hobbies" element={<Hobbies />} />
+            <Route path="/hobbies" element={<Hobbies onVideoPlayChange={setIsVideoPlaying} />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

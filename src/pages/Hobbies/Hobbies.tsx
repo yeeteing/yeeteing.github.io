@@ -4,7 +4,11 @@ import DisplayContainer from "../../components/DisplayContainer/DisplayContainer
 import Container from "../../components/Container/Container";
 
 
-const Hobbies: React.FC = () => {
+interface HobbiesProps {
+  onVideoPlayChange?: (isPlaying: boolean) => void;
+}
+
+const Hobbies: React.FC<HobbiesProps> = ({ onVideoPlayChange }) => {
   const hobbies: Item[] = [
     {
       img: "https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/Singing.mov",
@@ -38,7 +42,7 @@ const Hobbies: React.FC = () => {
 
   return (
      <DisplayContainer pageType="hobbies">
-        <Container items={hobbies}>
+        <Container items={hobbies} onVideoPlayChange={onVideoPlayChange}>
         </Container>
       </DisplayContainer>
   );
