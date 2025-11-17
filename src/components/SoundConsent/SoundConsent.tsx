@@ -1,4 +1,5 @@
 import React from "react";
+import "./SoundConsent.css";
 
 type Props = {
   open: boolean;
@@ -13,57 +14,23 @@ const SoundConsent: React.FC<Props> = ({ open, onGrant, onDeny }) => {
     <div
       role="dialog"
       aria-modal="true"
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "rgba(0,0,0,.4)", // translucent dark overlay
-        display: "grid",
-        placeItems: "center",
-        zIndex: 2000,
-      }}
+      className="sound-consent-overlay"
     >
-      <div
-        style={{
-          maxWidth: 420,
-          background: "var(--light-purple)",
-          color: "var(--medium-dark-blue)",
-          border: `2px solid var(--medium-blue)`,
-          borderRadius: 16,
-          padding: 24,
-        }}
-      >
-        <h2 style={{ margin: 0 }}>Enable site music?</h2>
-        <p style={{ marginTop: 10 }}>
-          Click “Enable” to play background music right away.
+      <div className="sound-consent-dialog">
+        <h2 className="sound-consent-title">Enable site music?</h2>
+        <p className="sound-consent-text">
+          Click "Enable" to play background music right away.
         </p>
-        <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-           <button
+        <div className="sound-consent-buttons">
+          <button
             onClick={onGrant}
-            style={{
-              flex: 1,
-              padding: "10px 14px",
-              borderRadius: 9999,
-              border: "none",
-              background: "var(--medium-pink)",
-              color: "#fff",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
+            className="sound-consent-btn sound-consent-btn-enable"
           >
             🔊 Enable
           </button>
           <button
             onClick={onDeny}
-            style={{
-              flex: 1,
-              padding: "10px 14px",
-              borderRadius: 9999,
-              border: `2px solid var(--light-blue)`,
-              background: "var(--light-blue)",
-              color: "var(--medium-dark-blue)",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
+            className="sound-consent-btn sound-consent-btn-deny"
           >
             🔇 No thanks
           </button>

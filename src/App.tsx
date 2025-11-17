@@ -29,7 +29,8 @@ function App() {
         <div style={{ position: "fixed", right: 16, bottom: 16, zIndex: 1000 }}>
         <AudioPlayer  src="https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/other/In+Dreamland+by+Chillpeach.mp3"
         play={play}
-        externalPause={isVideoPlaying}/>
+        externalPause={isVideoPlaying}
+        onPlayChange={setPlay}/>
 
       </div>
         <NavigationBar/>
