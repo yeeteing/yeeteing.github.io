@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavigationBar, ProfileCard, Footer } from "./components";
 import { AboutMe, Resume, Projects, Hobbies, Contact } from "./pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

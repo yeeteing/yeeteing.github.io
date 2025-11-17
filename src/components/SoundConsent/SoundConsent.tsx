@@ -1,5 +1,6 @@
 import React from "react";
 import "./SoundConsent.css";
+import { useClickSound, useHoverSound } from "../../hooks/useClickSound";
 
 type Props = {
   open: boolean;
@@ -8,7 +9,20 @@ type Props = {
 };
 
 const SoundConsent: React.FC<Props> = ({ open, onGrant, onDeny }) => {
+  const playClickSound = useClickSound();
+  const playHoverSound = useHoverSound();
+
   if (!open) return null;
+
+  const handleGrant = () => {
+    playClickSound();
+    onGrant();
+  };
+
+  const handleDeny = () => {
+    playClickSound();
+    onDeny();
+  };
 
   return (
     <div
@@ -23,13 +37,15 @@ const SoundConsent: React.FC<Props> = ({ open, onGrant, onDeny }) => {
         </p>
         <div className="sound-consent-buttons">
           <button
-            onClick={onGrant}
+            onClick={handleGrant}
+            onMouseEnter={playHoverSound}
             className="sound-consent-btn sound-consent-btn-enable"
           >
             🔊 Enable
           </button>
           <button
-            onClick={onDeny}
+            onClick={handleDeny}
+            onMouseEnter={playHoverSound}
             className="sound-consent-btn sound-consent-btn-deny"
           >
             🔇 No thanks

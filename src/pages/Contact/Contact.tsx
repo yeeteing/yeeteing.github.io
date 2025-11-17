@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import './Contact.css';
 import { sendContactEmail } from "./ContactApi";
 import { useFormStatus } from "react-dom";
+import { useClickSound, useHoverSound } from "../../hooks/useClickSound";
 
 export type DataToSend = {
   name: string;
@@ -12,9 +13,11 @@ export type DataToSend = {
 
 function Submit() {
   const { pending } = useFormStatus();
+  const playClickSound = useClickSound();
+  const playHoverSound = useHoverSound();
   console.log(pending);
   return (
-    <button type="submit" disabled={pending} className="submit-button">
+    <button type="submit" disabled={pending} className="submit-button" onClick={playClickSound} onMouseEnter={playHoverSound}>
       {pending ? "Submitting..." : "Submit"}
     </button>
   );

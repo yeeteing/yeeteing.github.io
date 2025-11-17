@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./AudioPlayer.css";
+import { useClickSound, useHoverSound } from "../../hooks/useClickSound";
 
 type Props = {
   src: string;
@@ -11,27 +12,68 @@ type Props = {
 
 const BTN_SIZE = 56;
 
+// Initialize audio instance immediately at module level
+const initAudio = (src: string, volume: number) => {
+  const audio = new Audio(src);
+  audio.loop = true;
+  audio.preload = "auto";
+  audio.volume = volume;
+  return audio;
+};
+
+let sharedAudio: HTMLAudioElement | null = null;
+let sharedMuted = false;
+let isInitialized = false; // Module-level flag to prevent re-initialization
+
 const AudioPlayer: React.FC<Props> = ({ src, play, volume = 0.6, externalPause = false, onPlayChange }) => {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [muted, setMuted] = useState(false);
+  const playClickSound = useClickSound();
+  const playHoverSound = useHoverSound();
+  const [muted, setMuted] = useState(() => sharedMuted);
+
+  // One-time initialization using module-level flag
+  if (!sharedAudio && !isInitialized) {
+    console.log('🎵 Creating NEW audio instance');
+    sharedAudio = initAudio(src, volume);
+    isInitialized = true;
+
+    // If play is true on initialization (from localStorage), start playing immediately
+    if (play && !externalPause) {
+      sharedAudio.muted = sharedMuted;
+      sharedAudio.play().catch(() => {
+        console.log('Initial play failed');
+      });
+    }
+  } else {
+    console.log('🎵 Reusing EXISTING audio instance, currentTime:', sharedAudio?.currentTime);
+  }
 
   // Audio control
   useEffect(() => {
-    const el = audioRef.current;
-    if (!el) return;
-    el.volume = volume;
+    if (!sharedAudio) return;
+
+    console.log('Audio control effect - play:', play, 'externalPause:', externalPause, 'muted:', muted, 'currentTime:', sharedAudio.currentTime);
+
+    sharedAudio.volume = volume;
 
     if (play && !externalPause) {
-      el.muted = muted;
-      el.play().catch(() => {});
+      sharedAudio.muted = muted;
+      // Only call play() if audio is not already playing to avoid restarting
+      if (sharedAudio.paused) {
+        const playPromise = sharedAudio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            console.log('Play failed');
+          });
+        }
+      }
     } else {
-      el.pause();
+      sharedAudio.pause();
     }
   }, [play, muted, volume, externalPause]);
 
   const toggleMute = () => {
-    const el = audioRef.current;
-    if (!el) return;
+    playClickSound();
+    if (!sharedAudio) return;
 
     // If music is not playing, start it
     if (!play) {
@@ -40,7 +82,8 @@ const AudioPlayer: React.FC<Props> = ({ src, play, volume = 0.6, externalPause =
       // If music is playing, toggle mute
       const next = !muted;
       setMuted(next);
-      el.muted = next;
+      sharedMuted = next; // Persist muted state
+      sharedAudio.muted = next;
     }
   };
 
@@ -58,9 +101,9 @@ const AudioPlayer: React.FC<Props> = ({ src, play, volume = 0.6, externalPause =
 
   return (
     <>
-      <audio ref={audioRef} src={src} loop playsInline preload="auto" />
       <button
         onClick={toggleMute}
+        onMouseEnter={playHoverSound}
         aria-label={buttonState.label}
         title={buttonState.label}
         className={`audio-control-btn ${buttonState.className}`}

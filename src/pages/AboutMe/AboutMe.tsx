@@ -1,21 +1,25 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./AboutMe.css";
+import { useClickSound, useHoverSound } from "../../hooks/useClickSound";
 
 const AboutMe: React.FC = () => {
+  const playClickSound = useClickSound();
+  const playHoverSound = useHoverSound();
+
   return (
     <div className="main-content">
       <div className="content-container">
         <h1 className="main-heading">HELLO EVERYONE</h1>
 
         <div className="action-buttons">
-          <NavLink to="/resume" className="action-btn">
+          <NavLink to="/resume" className="action-btn" onClick={playClickSound} onMouseEnter={playHoverSound}>
             RESUME
           </NavLink>
-          <NavLink to="/projects" className="action-btn">
+          <NavLink to="/projects" className="action-btn" onClick={playClickSound} onMouseEnter={playHoverSound}>
             PROJECTS
           </NavLink>
-          <NavLink to="/hobbies" className="action-btn">
+          <NavLink to="/hobbies" className="action-btn" onClick={playClickSound} onMouseEnter={playHoverSound}>
             HOBBIES
           </NavLink>
         </div>

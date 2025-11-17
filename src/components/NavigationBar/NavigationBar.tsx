@@ -1,10 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavigationBar.css";
+import { useClickSound, useHoverSound } from "../../hooks/useClickSound";
 
 
 const NavigationBar: React.FC = () => {
- 
+  const playClickSound = useClickSound();
+  const playHoverSound = useHoverSound();
 
   return (
     <header className="navigationBar">
@@ -15,6 +17,8 @@ const NavigationBar: React.FC = () => {
         <nav className="navigation">
           <NavLink
             to="/"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
             className={({ isActive }) =>
               `nav-link ${isActive ? "nav-link-active" : ""}`
             }
@@ -24,6 +28,8 @@ const NavigationBar: React.FC = () => {
 
           <NavLink
             to="/resume"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
             className={({ isActive }) =>
               `nav-link ${isActive ? "nav-link-active" : ""}`
             }
@@ -33,6 +39,8 @@ const NavigationBar: React.FC = () => {
 
           <NavLink
             to="/projects"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
             className={({ isActive }) =>
               `nav-link ${isActive ? "nav-link-active" : ""}`
             }
@@ -42,6 +50,8 @@ const NavigationBar: React.FC = () => {
 
           <NavLink
             to="/hobbies"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
             className={({ isActive }) =>
               `nav-link ${isActive ? "nav-link-active" : ""}`
             }
@@ -51,6 +61,8 @@ const NavigationBar: React.FC = () => {
 
           <NavLink
             to="/contact"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
             className={({ isActive }) =>
               `nav-link ${isActive ? "nav-link-active" : ""}`
             }

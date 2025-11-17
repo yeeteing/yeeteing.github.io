@@ -1,7 +1,16 @@
 import React from "react";
 import "./ProfileCard.css";
+import { useClickSound, useHoverSound } from "../../hooks/useClickSound";
 
 const ProfileCard: React.FC = () => {
+  const playClickSound = useClickSound();
+  const playHoverSound = useHoverSound();
+
+  const handleLinkedInClick = () => {
+    playClickSound();
+    window.open("https://www.linkedin.com/in/ytlo/", "_blank");
+  };
+
   return (
     <div className="profile-card">
       <div className="profile-content">
@@ -19,11 +28,12 @@ const ProfileCard: React.FC = () => {
           <p className="follow-text">Follow On</p>
           <div className="social-icon">
               <img
-                width="34" height="30" 
+                width="34" height="30"
                 src="https://yeeteing-portfolio-website.s3.us-east-2.amazonaws.com/images/LI-In-Bug.png"
                 alt="LinkedIn"
                 className="icon-image"
-                onClick={() => window.open("https://www.linkedin.com/in/ytlo/", "_blank")}
+                onClick={handleLinkedInClick}
+                onMouseEnter={playHoverSound}
               />
           </div>
         </div>

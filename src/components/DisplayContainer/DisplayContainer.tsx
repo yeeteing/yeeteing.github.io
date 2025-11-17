@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./DisplayContainer.css";
+import { useClickSound, useHoverSound } from "../../hooks/useClickSound";
 
 
 interface DisplayContainerProps {
@@ -9,6 +10,9 @@ interface DisplayContainerProps {
 }
 
 const DisplayContainer: React.FC<DisplayContainerProps> = ({ children, pageType }) => {
+  const playClickSound = useClickSound();
+  const playHoverSound = useHoverSound();
+
   return (
     <div className="display-page">
       <div className="display-container">
@@ -19,6 +23,8 @@ const DisplayContainer: React.FC<DisplayContainerProps> = ({ children, pageType 
         <div className="display-navigation">
           <NavLink
             to="/resume"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
             className={({ isActive }) =>
               `display-nav-btn ${isActive ? "display-nav-active" : ""}`
             }
@@ -27,6 +33,8 @@ const DisplayContainer: React.FC<DisplayContainerProps> = ({ children, pageType 
           </NavLink>
           <NavLink
             to="/projects"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
             className={({ isActive }) =>
               `display-nav-btn ${isActive ? "display-nav-active" : ""}`
             }
@@ -35,6 +43,8 @@ const DisplayContainer: React.FC<DisplayContainerProps> = ({ children, pageType 
           </NavLink>
           <NavLink
             to="/hobbies"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
             className={({ isActive }) =>
               `display-nav-btn ${isActive ? "display-nav-active" : ""}`
             }
