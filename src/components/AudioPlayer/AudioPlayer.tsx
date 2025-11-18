@@ -10,7 +10,6 @@ type Props = {
   onPlayChange?: (play: boolean) => void;
 };
 
-const BTN_SIZE = 56;
 
 // Initialize audio instance immediately at module level
 const initAudio = (src: string, volume: number) => {
